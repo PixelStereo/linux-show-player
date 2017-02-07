@@ -25,7 +25,7 @@ class RemoteDispatcher:
     # Layout functions
 
     def get_cue_at(self, index):
-        cue = Application().layout.model_adapter.item(index)
+        cue = Application().session.layout.model_adapter.item(index)
         if cue is not None:
             return cue.properties()
         return {}
@@ -37,6 +37,6 @@ class RemoteDispatcher:
     # Cue function
 
     def execute(self, index):
-        cue = Application().layout.model_adapter.item(index)
+        cue = Application().session.layout.model_adapter.item(index)
         if cue is not None:
             cue.execute()

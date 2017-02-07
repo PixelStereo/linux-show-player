@@ -33,10 +33,10 @@ from lisp.ui.ui_utils import translate
 class Keyboard(Protocol):
 
     def init(self):
-        Application().layout.key_pressed.connect(self.__key_pressed)
+        Application().session.layout.key_pressed.connect(self.__key_pressed)
 
     def reset(self):
-        Application().layout.key_pressed.disconnect(self.__key_pressed)
+        Application().session.layout.key_pressed.disconnect(self.__key_pressed)
 
     def __key_pressed(self, key_event):
         if not key_event.isAutoRepeat() and key_event.text() != '':

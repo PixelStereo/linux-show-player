@@ -316,7 +316,7 @@ class PresetsDialog(QDialog):
         if item is not None:
             preset_name = item.text()
             try:
-                cues = Application().layout.get_selected_cues()
+                cues = Application().session.layout.get_selected_cues()
                 if cues:
                     load_on_cues(preset_name, cues)
             except OSError as e:

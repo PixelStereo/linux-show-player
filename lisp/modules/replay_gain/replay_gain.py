@@ -182,7 +182,7 @@ class ReplayGain(Module):
 
             files = {}
             if gainUi.only_selected():
-                cues = Application().layout.get_selected_cues(MediaCue)
+                cues = Application().session.layout.get_selected_cues(MediaCue)
             else:
                 cues = Application().cue_model.filter(MediaCue)
 

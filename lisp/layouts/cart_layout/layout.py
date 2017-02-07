@@ -122,12 +122,6 @@ class CartLayout(QTabWidget, CueLayout):
         layoutMenu.addAction(self.show_volume_action)
         layoutMenu.addAction(self.show_accurate_action)
 
-        # TODO: maybe can be moved outside the layout
-        # Add cue preferences widgets
-        CueSettingsRegistry().add_item(CueGeneralSettings, Cue)
-        CueSettingsRegistry().add_item(MediaCueSettings, MediaCue)
-        CueSettingsRegistry().add_item(Appearance)
-
         # Cue(s) context-menu actions
         self.edit_action = QAction(self)
         self.edit_action.triggered.connect(self._edit_cue_action)

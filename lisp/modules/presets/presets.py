@@ -70,13 +70,13 @@ class Presets(Module):
         preset_name = select_preset_dialog()
         if preset_name is not None:
             try:
-                load_on_cue(preset_name, Application().layout.get_context_cue())
+                load_on_cue(preset_name, Application().session.layout.get_context_cue())
             except OSError as e:
                 load_preset_error(e, preset_name, parent=MainWindow())
 
     @staticmethod
     def __create_from_cue():
-        cue = Application().layout.get_context_cue()
+        cue = Application().session.layout.get_context_cue()
         name = save_preset_dialog(cue.name)
 
         if name is not None:

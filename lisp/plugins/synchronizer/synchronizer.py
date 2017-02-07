@@ -52,7 +52,7 @@ class Synchronizer(Plugin):
         self.cue_media = {}
 
     def init(self):
-        Application().layout.cue_executed.connect(self.remote_execute,
+        Application().session.layout.cue_executed.connect(self.remote_execute,
                                                   mode=Connection.Async)
 
     def manage_peers(self):

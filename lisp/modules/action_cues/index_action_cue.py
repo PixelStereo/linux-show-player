@@ -47,7 +47,7 @@ class IndexActionCue(Cue):
             index = self.target_index
 
         try:
-            cue = Application().layout.model_adapter.item(index)
+            cue = Application().session.layout.model_adapter.item(index)
             if cue is not self:
                 cue.execute(CueAction(self.action))
         except IndexError:

@@ -46,7 +46,7 @@ class MediaInfo(Module):
         CueLayout.cm_registry.add_item(self.menuAction, MediaCue)
 
     def show_info(self, clicked):
-        media_uri = Application().layout.get_context_cue().media.input_uri()
+        media_uri = Application().session.layout.get_context_cue().media.input_uri()
         if not media_uri:
             QMessageBox.critical(MainWindow(), translate('MediaInfo', 'Error'),
                                  translate('MediaInfo', 'No info to display'))
@@ -86,7 +86,7 @@ class MediaInfo(Module):
 
             # Show the dialog
             dialog = InfoDialog(MainWindow(), info,
-                                Application().layout.get_context_cue().name)
+                                Application().session.layout.get_context_cue().name)
             dialog.exec_()
 
 
