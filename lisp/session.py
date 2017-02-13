@@ -19,24 +19,22 @@
 
 import os
 
-from os import path
-
 from lisp.core.has_properties import HasProperties, Property
 from lisp.core.memento_model import AdapterMementoModel
 
 
-def Session(layout, session_file=''):
+def new_session(layout):
     class PublicSession(PrivateSession):
         pass
 
-    return PublicSession(layout, session_file)
+    return PublicSession(layout)
 
 
 class PrivateSession(HasProperties):
     layout_name = Property(default='')
     session_file = Property(default='')
 
-    def __init__(self, layout, session_file=''):
+    def __init__(self, layout):
         """
         :type layout: lisp.layouts.cue_layout.CueLayout
         """
@@ -47,7 +45,6 @@ class PrivateSession(HasProperties):
         self.__memento_model = AdapterMementoModel(layout.model_adapter)
 
         self.layout_name = layout.NAME
-        self.session_file = session_file
 
     @property
     def cue_model(self):

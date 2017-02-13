@@ -31,7 +31,7 @@ from lisp.cues.cue import Cue
 from lisp.cues.cue_factory import CueFactory
 from lisp.cues.cue_model import CueModel
 from lisp.cues.media_cue import MediaCue
-from lisp.session import Session
+from lisp.session import new_session
 from lisp.ui import elogging
 from lisp.ui.layoutselect import LayoutSelect
 from lisp.ui.mainwindow import MainWindow
@@ -115,7 +115,7 @@ class Application(metaclass=Singleton):
     def _new_session(self, layout):
         self._delete_session()
 
-        self.__session = Session(layout(self.__cue_model))
+        self.__session = new_session(layout(self.__cue_model))
         self.__main_window.set_session(self.__session)
 
         plugins.init_plugins()
